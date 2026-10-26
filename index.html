@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d6efd">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="후쿠오카 여행">
+  <title>후쿠오카 · 유후인 3박4일 여행계획</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <style>
+    :root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#6b7280;--line:#e5e7eb;--brand:#0d6efd;--brand2:#eaf2ff;--green:#169c6b;--amber:#e69a19;--red:#d64545;--purple:#7557d3;--shadow:0 8px 28px rgba(23,32,51,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;line-height:1.5}button,input,textarea,select{font:inherit}.shell{max-width:1080px;margin:auto;padding:0 14px 100px}.hero{margin:14px 0 12px;padding:22px;border-radius:24px;background:linear-gradient(135deg,#0b63ce,#4d8ef5);color:#fff;box-shadow:var(--shadow)}.hero h1{margin:0 0 6px;font-size:clamp(25px,6vw,40px);line-height:1.13}.hero p{margin:4px 0;color:rgba(255,255,255,.92)}.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:7px 10px;border-radius:999px;font-size:13px}.top-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}.btn{border:0;border-radius:13px;padding:11px 12px;background:#fff;color:var(--ink);box-shadow:0 2px 9px rgba(0,0,0,.05);cursor:pointer;font-weight:800}.btn.primary{background:var(--brand);color:#fff}.btn.soft{background:var(--brand2);color:#0b63ce}.btn.success{background:#e9f8f1;color:#0f7a52}.btn.danger{background:#fff0f0;color:#b92f2f}.btn.small{padding:7px 9px;font-size:13px;border-radius:10px}.btn:disabled{opacity:.5;cursor:not-allowed}nav{position:sticky;top:0;z-index:999;background:rgba(245,247,251,.94);backdrop-filter:blur(10px);padding:8px 0}.tabs{display:flex;gap:8px;overflow:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{white-space:nowrap;border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:999px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:800}section{margin:18px 0}.sec-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 2px 9px}.sec-title h2{margin:0;font-size:21px}.sec-title small{color:var(--muted)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:15px;margin:9px 0}.grid{display:grid;grid-template-columns:1fr;gap:10px}.summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.summary{padding:14px;border-radius:16px;background:#fff;border:1px solid var(--line)}.summary b{display:block;font-size:17px}.summary span{font-size:13px;color:var(--muted)}.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.kpi{background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px}.kpi span{display:block;color:var(--muted);font-size:12px}.kpi b{font-size:20px}.day-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:11px}.day-title{font-weight:900;font-size:18px}.day-sub{color:var(--muted);font-size:13px}.timeline{position:relative;margin-left:7px}.timeline:before{content:"";position:absolute;left:16px;top:5px;bottom:7px;width:2px;background:#dce5f3}.item{position:relative;padding:10px 8px 10px 44px;margin:0 0 8px;border-radius:14px;background:#fff;touch-action:pan-y}.item.dragging{opacity:.45;background:#eef5ff}.dot{position:absolute;left:9px;top:16px;width:16px;height:16px;border-radius:50%;background:var(--brand);border:3px solid #dfeaff}.drag-handle{position:absolute;left:5px;top:41px;width:25px;height:28px;border:0;background:transparent;color:#9ca3af;font-size:20px;cursor:grab;touch-action:none}.time{font-size:13px;color:#0b63ce;font-weight:900}.item h3{font-size:16px;margin:2px 0 2px}.item p{margin:0;color:#4b5563;font-size:14px}.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.tag{font-size:12px;padding:4px 7px;border-radius:999px;background:#f1f5f9;color:#475569}.tag.move{background:#eaf2ff;color:#0b63ce}.tag.food{background:#fff5df;color:#a26700}.tag.stay{background:#f2ecff;color:#6546ba}.tag.must{background:#fff0f0;color:#b92f2f}.tag.maybe{background:#fff8e8;color:#956300}.tag.star{background:#e9f8f1;color:#0f7a52}.item-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.linkbtn{border:0;background:#f4f6fa;color:#334155;padding:7px 9px;border-radius:9px;cursor:pointer;font-size:12px;font-weight:800}.mini-actions{display:flex;gap:5px}.map-wrap{position:relative}#map{height:420px;border-radius:18px;border:1px solid var(--line);overflow:hidden}.map-controls{display:flex;gap:7px;overflow:auto;margin:0 0 9px}.map-controls button{border:1px solid var(--line);background:#fff;padding:8px 10px;border-radius:999px;white-space:nowrap;cursor:pointer}.map-controls button.active{background:var(--brand);color:#fff;border-color:var(--brand)}.route-info{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}.route-card{padding:12px;border-radius:14px;border:1px solid var(--line);background:#fff}.route-card b{font-size:14px}.route-card p{font-size:13px;margin:3px 0;color:var(--muted)}.checklist label{display:flex;gap:10px;align-items:flex-start;padding:10px 2px;border-bottom:1px dashed var(--line)}.checklist label:last-child{border-bottom:0}.checklist input{width:20px;height:20px;margin-top:1px}.strike{text-decoration:line-through;color:#9ca3af}.food-card{display:grid;grid-template-columns:1fr auto;gap:10px}.food-card h3{margin:0;font-size:16px}.food-card p{margin:4px 0;color:var(--muted);font-size:13px}.food-meta,.chips{display:flex;gap:6px;flex-wrap:wrap}.pill{font-size:12px;border-radius:999px;background:#f4f6fa;padding:4px 7px}.notice{border-left:4px solid var(--amber);background:#fff8e8;padding:12px 13px;border-radius:12px;margin:8px 0;font-size:14px}.verified{border-left-color:var(--green);background:#eefaf5}.warning{border-left-color:var(--red);background:#fff1f1}.info{border-left-color:var(--brand);background:#eef5ff}details{background:#fff;border:1px solid var(--line);border-radius:14px;margin:8px 0;padding:10px 12px}summary{cursor:pointer;font-weight:800}.expense-row,.reservation-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid var(--line)}.expense-row:last-child,.reservation-row:last-child{border-bottom:0}.amount{font-weight:900}.muted{color:var(--muted);font-size:13px}.thumb{width:72px;height:72px;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f4f6fa}.weather-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.weather-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px}.weather-card b{display:block}.weather-card span{font-size:12px;color:var(--muted)}dialog{border:0;border-radius:20px;width:min(94vw,560px);max-height:90vh;overflow:auto;box-shadow:0 30px 90px rgba(0,0,0,.3);padding:0}dialog::backdrop{background:rgba(0,0,0,.45)}.modal{padding:18px}.modal h3{margin:0 0 12px}.form{display:grid;gap:10px}.form label{font-size:13px;color:#475569}.form input,.form textarea,.form select{width:100%;padding:11px;border:1px solid #d7dde7;border-radius:11px;background:#fff}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.footer{color:var(--muted);font-size:12px;padding:20px 4px;text-align:center}.fab{position:fixed;right:18px;bottom:18px;z-index:1000;border:0;border-radius:999px;background:#111827;color:#fff;padding:13px 17px;font-weight:900;box-shadow:0 12px 30px rgba(0,0,0,.2);cursor:pointer}.install-banner{display:none;align-items:center;justify-content:space-between;gap:10px;background:#111827;color:#fff;border-radius:14px;padding:11px 12px;margin:10px 0}.install-banner.show{display:flex}.install-banner small{opacity:.8}.empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:14px}.priority-btn.active{outline:2px solid var(--brand)}
+    @media(min-width:760px){.shell{padding-left:22px;padding-right:22px}.summary-grid{grid-template-columns:repeat(4,1fr)}.grid.two{grid-template-columns:1fr 1fr}.route-info{grid-template-columns:repeat(2,1fr)}.top-actions{grid-template-columns:repeat(4,1fr);max-width:800px}.hero{padding:30px}.kpi-grid{grid-template-columns:repeat(4,1fr)}.weather-grid{grid-template-columns:repeat(4,1fr)}}
+    @media print{nav,.top-actions,.fab,.install-banner,.item-actions,.drag-handle,.map-controls{display:none!important}.shell{max-width:none;padding:0}.hero{box-shadow:none}.card{box-shadow:none;break-inside:avoid}#map{height:350px}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="hero">
+    <h1>후쿠오카 · 유후인<br>3박 4일 여행</h1>
+    <p>2026.11.07 (토) → 11.10 (화)</p>
+    <p>하카타 · 텐진 · 오호리 · 모모치 · 유후인</p>
+    <div class="badges"><span class="badge">📱 PWA 홈화면 설치</span><span class="badge">🗺️ 무료 지도</span><span class="badge">✋ 일정 순서 변경</span><span class="badge">💴 예산 관리</span><span class="badge">🎫 예약 보관</span></div>
+  </header>
+
+  <div id="installBanner" class="install-banner"><div><b>앱처럼 설치하기</b><br><small>GitHub Pages 주소를 홈 화면에 추가하면 빠르게 열 수 있습니다.</small></div><button class="btn small" onclick="installApp()">설치</button></div>
+
+  <div class="top-actions">
+    <button class="btn primary" onclick="shareTrip()">💬 카카오톡 공유</button>
+    <button class="btn soft" onclick="openAdd()">＋ 일정 추가</button>
+    <button class="btn success" onclick="openExpense()">＋ 지출 추가</button>
+    <button class="btn" onclick="openReservation()">🎫 예약 추가</button>
+  </div>
+
+  <nav><div class="tabs">
+    <a class="tab" href="#summary">요약</a><a class="tab" href="#detail">상세</a><a class="tab" href="#map-section">지도</a><a class="tab" href="#prepare">준비</a><a class="tab" href="#budget">예산</a><a class="tab" href="#reservations">예약</a><a class="tab" href="#food">음식점</a><a class="tab" href="#tips">팁</a>
+  </div></nav>
+
+  <section id="summary">
+    <div class="sec-title"><h2>일정 요약</h2><small>하루 흐름만 빠르게 보기</small></div>
+    <div class="summary-grid">
+      <div class="summary"><b>DAY 1 · 11/07</b><span>입국 → 하카타 → 나카스 → 텐진</span></div>
+      <div class="summary"><b>DAY 2 · 11/08</b><span>하카타 쇼핑 → 오호리 → 모모치</span></div>
+      <div class="summary"><b>DAY 3 · 11/09</b><span>유후인 이동 → 관광 → 료칸</span></div>
+      <div class="summary"><b>DAY 4 · 11/10</b><span>긴린코 아침 → 체크아웃 → 후쿠오카</span></div>
+    </div>
+    <div class="notice warning"><b>요일 정정:</b> 첨부 자료의 목·금 표기와 달리 2026년 기준 11/7 토, 11/8 일, 11/9 월, 11/10 화입니다.</div>
+    <div class="kpi-grid">
+      <div class="kpi"><span>총 일정</span><b id="kpiSchedule">0</b></div>
+      <div class="kpi"><span>준비 완료</span><b id="kpiPrep">0%</b></div>
+      <div class="kpi"><span>예산</span><b id="kpiBudget">¥0</b></div>
+      <div class="kpi"><span>사용액</span><b id="kpiSpent">¥0</b></div>
+    </div>
+  </section>
+
+  <section id="detail">
+    <div class="sec-title"><h2>일정 상세</h2><small>≡ 손잡이를 길게 눌러 순서 변경 · ↑↓ 버튼도 사용 가능</small></div>
+    <div id="days"></div>
+  </section>
+
+  <section id="map-section">
+    <div class="sec-title"><h2>지도 · 이동 동선</h2><small>OpenStreetMap + Leaflet · 무료</small></div>
+    <div class="map-controls" id="mapControls"></div>
+    <div class="map-wrap"><div id="map"></div></div>
+    <div class="route-info" id="routeInfo"></div>
+    <div class="notice info"><b>지도 사용 팁:</b> 색 선은 대략적인 방문 순서를 나타냅니다. 실제 도보·지하철·버스 경로는 각 일정의 ‘카카오맵’ 또는 ‘구글지도’ 버튼으로 바로 확인하세요. 방문한 지도 타일은 오프라인 캐시에 일부 남도록 구성했습니다.</div>
+  </section>
+
+  <section id="prepare">
+    <div class="sec-title"><h2>여행 준비</h2><small>체크 상태 자동 저장</small></div>
+    <div class="card checklist" id="checklist"></div>
+    <div class="sec-title" style="margin-top:14px"><h2>여행 날짜 날씨</h2><small>Open-Meteo 무료 API · 조회 가능 범위일 때 표시</small></div>
+    <div id="weather" class="weather-grid"></div>
+  </section>
+
+  <section id="budget">
+    <div class="sec-title"><h2>예산 · 사용금액</h2><small>JPY 기준 · 카테고리별 관리</small></div>
+    <div class="card">
+      <div class="row"><label>전체 여행 예산<input id="budgetInput" type="number" min="0" step="100" placeholder="예: 100000" oninput="saveBudget()"></label><label>남은 금액<input id="budgetRemain" type="text" readonly></label></div>
+    </div>
+    <div class="card" id="expenseList"></div>
+  </section>
+
+  <section id="reservations">
+    <div class="sec-title"><h2>예약 정보 보관</h2><small>예약번호 + QR/캡처 이미지는 이 기기에만 저장</small></div>
+    <div class="notice info"><b>중요:</b> GitHub Pages에는 예약 이미지가 업로드되지 않습니다. 이미지/예약번호는 사용 중인 휴대폰 브라우저 내부에만 저장됩니다. 다른 기기에는 자동 동기화되지 않습니다.</div>
+    <div class="card" id="reservationList"></div>
+  </section>
+
+  <section id="food">
+    <div class="sec-title"><h2>음식점 상세</h2><small>‘꼭 가기 / 시간되면 / 후보’ 우선순위 저장</small></div>
+    <div class="grid two" id="foodList"></div>
+  </section>
+
+  <section id="tips">
+    <div class="sec-title"><h2>기타 주의사항 · 팁</h2><small>출발 전 다시 확인</small></div>
+    <div class="notice verified"><b>유후인 고속버스:</b> 좌석 지정 예약제로 계획하고, 실제 11/9·11/10 운행시각과 좌석은 예약 화면에서 최종 확인하세요. 귀국일에는 도로 지연을 고려해 충분한 여유를 두는 것이 좋습니다.</div>
+    <div class="notice verified"><b>후쿠오카 타워:</b> 18:30 방문 일정으로 구성했습니다. 실제 운영시간·입장 마감은 방문 직전 공식 페이지에서 한 번 더 확인하세요.</div>
+    <details open><summary>🧳 짐 운용</summary><p>유노츠보 거리·플로럴 빌리지·긴린코는 도보 비중이 높습니다. 큰 캐리어는 하카타 숙소 또는 유후인 숙소에 맡기고 작은 가방 위주로 이동하는 편이 편합니다.</p></details>
+    <details><summary>🚌 버스 탑승</summary><p>예약번호·모바일 승차권을 ‘예약 정보 보관’에 저장하고, 출발 15–20분 전 터미널 도착을 권장합니다.</p></details>
+    <details><summary>📱 오프라인 사용</summary><p>PWA 설치 후 일정·예산·체크리스트·예약 텍스트는 오프라인에서도 볼 수 있습니다. 지도는 미리 열어본 영역 일부만 캐시될 수 있으므로 네트워크가 완전히 끊긴 상황에서는 지도 표시가 제한될 수 있습니다.</p></details>
+    <details><summary>🔐 개인정보</summary><p>여권번호·카드번호처럼 민감한 정보는 이 웹앱에 저장하지 않는 것을 권장합니다. 예약번호와 예약 화면 캡처 정도만 보관하세요.</p></details>
+    <details><summary>🧹 초기화</summary><p>일정 편집·체크리스트·예산·우선순위를 모두 초기화하려면 아래 버튼을 사용하세요. 예약 이미지까지 초기화하려면 별도 확인이 뜹니다.</p><button class="btn danger small" onclick="resetAll()">모든 사용자 데이터 초기화</button></details>
+  </section>
+
+  <div class="footer">GitHub Pages용 정적 PWA · 서버/DB/API 키 없이 사용 가능 · 데이터는 브라우저에 저장됩니다.</div>
+</div>
+<button class="fab" onclick="openAdd()">＋ 일정</button>
+
+<dialog id="addDialog"><div class="modal"><h3>일정 추가</h3><div class="form">
+  <div class="row"><label>DAY<select id="fDay"><option value="1">DAY 1</option><option value="2">DAY 2</option><option value="3">DAY 3</option><option value="4">DAY 4</option></select></label><label>구분<select id="fType"><option value="visit">관광</option><option value="move">이동</option><option value="food">식사</option><option value="stay">숙박</option></select></label></div>
+  <div class="row"><label>시작<input id="fStart" type="time" value="12:00"></label><label>종료<input id="fEnd" type="time"></label></div>
+  <label>일정명<input id="fTitle" placeholder="예: 캐널시티 쇼핑"></label><label>장소<input id="fPlace" placeholder="예: Canal City Hakata"></label><label>메모<textarea id="fMemo" rows="3"></textarea></label>
+  <div class="row"><label>위도(선택)<input id="fLat" inputmode="decimal" placeholder="33.59"></label><label>경도(선택)<input id="fLng" inputmode="decimal" placeholder="130.40"></label></div>
+</div><div class="modal-actions"><button class="btn" onclick="addDialog.close()">취소</button><button class="btn primary" onclick="saveAdd()">저장</button></div></div></dialog>
+
+<dialog id="expenseDialog"><div class="modal"><h3>지출 추가</h3><div class="form"><div class="row"><label>카테고리<select id="eCat"><option>교통</option><option>식비</option><option>쇼핑</option><option>숙박</option><option>관광</option><option>기타</option></select></label><label>금액(JPY)<input id="eAmount" type="number" min="0" step="1" placeholder="1000"></label></div><label>내용<input id="eTitle" placeholder="예: 후쿠오카 타워 입장료"></label><label>메모<input id="eMemo" placeholder="선택"></label></div><div class="modal-actions"><button class="btn" onclick="expenseDialog.close()">취소</button><button class="btn primary" onclick="saveExpense()">저장</button></div></div></dialog>
+
+<dialog id="reservationDialog"><div class="modal"><h3>예약 정보 추가</h3><div class="form"><label>구분<select id="rType"><option>항공</option><option>호텔</option><option>고속버스</option><option>료칸</option><option>식당</option><option>기타</option></select></label><label>제목<input id="rTitle" placeholder="예: 하카타→유후인 버스"></label><label>예약번호<input id="rCode" placeholder="예약번호 / 확인번호"></label><label>날짜·시간<input id="rTime" placeholder="예: 11/09 09:48"></label><label>메모<textarea id="rMemo" rows="3"></textarea></label><label>QR/예약화면 이미지<input id="rImage" type="file" accept="image/*"></label></div><div class="modal-actions"><button class="btn" onclick="reservationDialog.close()">취소</button><button class="btn primary" onclick="saveReservation()">저장</button></div></div></dialog>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+const baseItinerary=[
+{id:'d1-1',day:1,start:'10:10',end:'11:35',title:'인천공항 → 후쿠오카공항',place:'Fukuoka Airport',memo:'항공편 도착 후 입국수속·수하물 수령.',type:'move',lat:33.5859,lng:130.4507},
+{id:'d1-2',day:1,start:'11:35',end:'12:30',title:'공항 → 하카타 숙소 / 짐 보관',place:'Hakata Station',memo:'무료 셔틀버스 → 국내선 지하철 → 하카타역 → 숙소. 예상 교통비 약 260엔.',type:'move',lat:33.5902,lng:130.4207},
+{id:'d1-3',day:1,start:'12:30',end:'13:30',title:'하카타역 인근 점심',place:'Hakata Station',memo:'라멘·함바그·회전초밥 등. 식사 후 바로 쇼핑 동선 연결.',type:'food',lat:33.5902,lng:130.4207},
+{id:'d1-4',day:1,start:'13:30',end:'16:00',title:'하카타역 복합몰 쇼핑',place:'AMU PLAZA HAKATA',memo:'아뮤플라자·한큐·편집숍·잡화 코너. 쇼핑백은 숙소에 보관하면 이후 동선이 편함.',type:'visit',lat:33.5899,lng:130.4206},
+{id:'d1-5',day:1,start:'16:00',end:'17:30',title:'나카스 강변 산책',place:'Nakasu',memo:'하카타역에서 도보/지하철 이동. 해 질 무렵 강변과 포장마차 거리 분위기 감상.',type:'visit',lat:33.5914,lng:130.4064},
+{id:'d1-6',day:1,start:'17:30',end:'19:30',title:'텐진 지하상가',place:'Tenjin Underground Mall',memo:'나카스에서 텐진 방향 도보 약 8~15분. 쇼핑·디저트.',type:'visit',lat:33.5905,lng:130.3989},
+{id:'d1-7',day:1,start:'19:30',end:'21:00',title:'텐진 저녁 → 숙소 복귀',place:'Tenjin',memo:'모츠나베·돈카츠·이자카야 후보. 지하철로 하카타 복귀.',type:'food',lat:33.5904,lng:130.3986},
+{id:'d2-1',day:2,start:'10:30',end:'12:00',title:'아뮤플라자 하카타 쇼핑',place:'AMU PLAZA HAKATA',memo:'PORTER, SHIRO, BEAMS, UNITED ARROWS 등 편집숍 중심.',type:'visit',lat:33.5899,lng:130.4206},
+{id:'d2-2',day:2,start:'12:00',end:'13:30',title:'하카타 한큐 + 점심',place:'Hakata Hankyu',memo:'면세 쇼핑 및 점심. 여권 지참.',type:'food',lat:33.5897,lng:130.4204},
+{id:'d2-3',day:2,start:'14:00',end:'14:30',title:'하카타 → 오호리 공원',place:'Ohori Park',memo:'공항선 지하철 이용. 오호리코엔역 하차 후 도보.',type:'move',lat:33.5860,lng:130.3761},
+{id:'d2-4',day:2,start:'14:30',end:'16:30',title:'오호리 공원 산책',place:'Ohori Park',memo:'호수 한 바퀴·카페·사진. 약 2시간 여유.',type:'visit',lat:33.5860,lng:130.3761},
+{id:'d2-5',day:2,start:'16:30',end:'17:00',title:'오호리 공원 → 모모치 해변',place:'Momochi Seaside Park',memo:'오호리코엔역 인근 버스정류장 → 니시테츠 버스 이용.',type:'move',lat:33.5947,lng:130.3501},
+{id:'d2-6',day:2,start:'17:00',end:'18:30',title:'모모치 해변 · 마리존',place:'Marizon',memo:'해변 산책, 노을·야경 사진 촬영.',type:'visit',lat:33.5950,lng:130.3505},
+{id:'d2-7',day:2,start:'18:30',end:'19:30',title:'후쿠오카 타워 전망대',place:'Fukuoka Tower',memo:'저녁 야경 감상. 운영시간은 방문 직전 최종 확인.',type:'visit',lat:33.5933,lng:130.3515},
+{id:'d2-8',day:2,start:'19:30',end:'20:30',title:'모모치 저녁',place:'TNC Broadcasting Center',memo:'타워 1층 또는 TNC 방송회관 인근 식당 후보.',type:'food',lat:33.5936,lng:130.3530},
+{id:'d2-9',day:2,start:'20:30',end:'21:00',title:'모모치 → 하카타 숙소',place:'Hakata Station',memo:'후쿠오카 타워 인근 정류장 → 하카타 방향 버스. 당일 노선 확인.',type:'move',lat:33.5902,lng:130.4207},
+{id:'d3-1',day:3,start:'09:00',end:'09:30',title:'호텔 출발 → 하카타 버스터미널',place:'Hakata Bus Terminal',memo:'예약번호/승차권/여권 확인.',type:'move',lat:33.5905,lng:130.4198},
+{id:'d3-2',day:3,start:'09:48',end:'11:47',title:'하카타 → 유후인 고속버스',place:'Yufuin Station Bus Center',memo:'첨부 계획의 예시 시각. 실제 2026-11-09 운행·좌석은 예약 화면에서 최종 확인.',type:'move',lat:33.2622,lng:131.3552},
+{id:'d3-3',day:3,start:'12:00',end:'13:30',title:'유노츠보 거리 + 점심',place:'Yunotsubo Kaido',memo:'점심·기념품·간식·거리 사진. 인기 식당은 대기시간 고려.',type:'food',lat:33.2667,lng:131.3607},
+{id:'d3-4',day:3,start:'13:30',end:'14:10',title:'유후인 플로럴 빌리지',place:'Yufuin Floral Village',memo:'유노츠보 거리에서 이어서 도보 이동. 건물·캐릭터 숍 구경.',type:'visit',lat:33.2672,lng:131.3634},
+{id:'d3-5',day:3,start:'14:10',end:'15:00',title:'긴린코 호수',place:'Kinrin Lake',memo:'호숫가 산책·사진. 다음날 아침에도 방문 예정이므로 첫날은 가볍게.',type:'visit',lat:33.2662,lng:131.3691},
+{id:'d3-6',day:3,start:'15:00',end:'16:00',title:'긴린코 → 별소 곤자쿠안',place:'Bessou Konjakuan',memo:'도보/택시 또는 숙소 픽업을 사전 확인.',type:'move',lat:33.2720,lng:131.3615},
+{id:'d3-7',day:3,start:'16:00',end:'21:00',title:'체크인 · 온천 · 석식',place:'Bessou Konjakuan',memo:'객실/온천 이용. 석식 포함 여부와 시작시간 확인.',type:'stay',lat:33.2720,lng:131.3615},
+{id:'d4-1',day:4,start:'07:00',end:'07:45',title:'긴린코 아침 산책',place:'Kinrin Lake',memo:'아침 호수 풍경. 날씨가 추우면 체류시간 조정.',type:'visit',lat:33.2662,lng:131.3691},
+{id:'d4-2',day:4,start:'08:00',end:'09:30',title:'조식 · 마지막 온천 · 짐 정리',place:'Bessou Konjakuan',memo:'조식 제공시간은 예약 내용 확인.',type:'stay',lat:33.2720,lng:131.3615},
+{id:'d4-3',day:4,start:'10:00',end:'10:20',title:'체크아웃 → 유후인역',place:'Yufuin Station',memo:'무료 송영 이용 시 전날 숙소에 시간 확인.',type:'move',lat:33.2621,lng:131.3550},
+{id:'d4-4',day:4,start:'10:30',end:'13:00',title:'유후인 → 하카타',place:'Hakata Bus Terminal',memo:'귀환편 실제 예약시각으로 교체. 도로 지연 고려.',type:'move',lat:33.5905,lng:130.4198},
+{id:'d4-5',day:4,start:'13:00',end:'16:00',title:'하카타 자유시간 / 귀국 준비',place:'Hakata Station',memo:'점심·쇼핑·공항 이동. 항공편 시각에 맞춰 조정.',type:'visit',lat:33.5902,lng:130.4207}
+];
+const dayMeta={1:['11/07 (토)','후쿠오카 도착 · 하카타/텐진'],2:['11/08 (일)','하카타 · 오호리 · 모모치'],3:['11/09 (월)','유후인 관광 · 료칸'],4:['11/10 (화)','긴린코 · 후쿠오카 복귀']};
+const food=[
+{id:'f1',name:'신신라멘 KITTE 하카타점',area:'하카타',type:'라멘',note:'DAY 1 점심 후보. 역과 가까워 첫날 동선에 편함.'},
+{id:'f2',name:'요시즈카 우나기야',area:'나카스',type:'장어덮밥',note:'전통 장어덮밥 후보. 인기 시간대 대기 가능.'},
+{id:'f3',name:'모츠나베 이치후지 텐진점',area:'텐진',type:'모츠나베',note:'DAY 1 저녁 후보. 사전 예약 권장.'},
+{id:'f4',name:'우오베이 요도바시 하카타점',area:'하카타',type:'회전초밥',note:'가볍고 빠르게 먹기 좋은 후보.'},
+{id:'f5',name:'유후인 유노츠보 거리 식당',area:'유후인',type:'점심/간식',note:'DAY 3 점심. 대기시간을 보고 즉석 선택 추천.'},
+{id:'f6',name:'별소 곤자쿠안 석식',area:'유후인',type:'료칸식',note:'예약 플랜에 석식 포함 여부 및 식사시간 확인.'}
+];
+const prep=['11/09 하카타 → 유후인 고속버스 예약','11/10 유후인 → 하카타 고속버스 예약','왕복 승차권/예약번호 휴대폰 저장','별소 곤자쿠안 숙박·식사 포함 여부 확인','숙소 픽업 및 짐 보관 가능 여부 문의','귀국일 공항 이동시간과 항공편 재확인','여권·해외결제 카드·현금 준비','휴대폰 지도에 주요 장소 즐겨찾기 저장','11월 아침 산책용 겉옷·편한 운동화 준비','휴대용 보조배터리·충전기 준비'];
+const routeText={1:[['후쿠오카공항 → 하카타','무료 셔틀 → 공항선 지하철. 하카타역 도착 후 호텔 짐 보관.'],['하카타 → 나카스 → 텐진','도보+지하철 조합. 늦은 오후부터 야경·상점 동선을 한 방향으로 연결.']],2:[['하카타 → 오호리','공항선 지하철. 오호리코엔역 하차.'],['오호리 → 모모치 → 후쿠오카타워','버스로 해안 쪽 이동 후 모모치 해변·마리존·타워를 도보 연결.']],3:[['하카타 → 유후인','좌석 지정 고속버스. 실제 운행시각은 예약 화면에서 최종 확인.'],['유후인역 → 유노츠보 → 플로럴 → 긴린코','관광 핵심 구간은 도보 연결이 쉬움. 캐리어는 숙소/보관 서비스 활용 권장.']],4:[['숙소 → 긴린코 → 유후인역','아침 산책 후 숙소 복귀, 조식·체크아웃. 숙소 송영 가능 여부 활용.'],['유후인 → 하카타','예약 버스 탑승. 도로 지연을 감안해 항공 일정과 충분한 간격 확보.']]};
+
+let custom=JSON.parse(localStorage.getItem('trip.custom')||'[]');
+let removed=JSON.parse(localStorage.getItem('trip.removed')||'[]');
+let order=JSON.parse(localStorage.getItem('trip.order')||'{}');
+let priorities=JSON.parse(localStorage.getItem('trip.priorities')||'{}');
+let expenses=JSON.parse(localStorage.getItem('trip.expenses')||'[]');
+let budget=+(localStorage.getItem('trip.budget')||0);
+let items=[...baseItinerary.filter(x=>!removed.includes(x.id)),...custom];
+let map,layerGroup,activeDay=1,deferredPrompt=null,dragState=null;
+
+function esc(s){return String(s||'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[m]))}
+function enc(s){return encodeURIComponent(s)}
+function typeLabel(t){return t==='move'?'이동':t==='food'?'식사':t==='stay'?'숙박':'관광'}
+function dayItems(d){let arr=items.filter(x=>x.day===d);const ids=order[d]||[];if(ids.length){arr.sort((a,b)=>{const ai=ids.indexOf(a.id),bi=ids.indexOf(b.id);return (ai<0?999:ai)-(bi<0?999:bi) || a.start.localeCompare(b.start)});}else arr.sort((a,b)=>a.start.localeCompare(b.start));return arr}
+function persistOrder(d,ids){order[d]=ids;localStorage.setItem('trip.order',JSON.stringify(order))}
+function setPriority(id,p){priorities[id]=p;localStorage.setItem('trip.priorities',JSON.stringify(priorities));renderDays();renderFood()}
+function priorityLabel(id){const p=priorities[id];return p==='must'?'꼭 가기':p==='maybe'?'시간되면':p==='star'?'후보':''}
+
+function renderDays(){
+ const root=document.getElementById('days');root.innerHTML='';
+ for(let d=1;d<=4;d++){
+  const card=document.createElement('div');card.className='card';const arr=dayItems(d);
+  card.innerHTML=`<div class="day-head"><div><div class="day-title">DAY ${d} · ${dayMeta[d][0]}</div><div class="day-sub">${dayMeta[d][1]}</div></div><button class="btn small" onclick="showDay(${d})">지도 보기</button></div><div class="timeline" data-day="${d}">${arr.map((x,i)=>{const p=priorities[x.id];return `<div class="item" data-id="${x.id}"><span class="dot"></span><button class="drag-handle" aria-label="순서 이동" onpointerdown="startPointerDrag(event,'${x.id}',${d})">≡</button><div class="time">${x.start}${x.end?'–'+x.end:''}</div><h3>${esc(x.title)}</h3><p>${esc(x.memo||'')}</p><div class="tags"><span class="tag ${x.type}">${typeLabel(x.type)}</span><span class="tag">📍 ${esc(x.place||'장소 미정')}</span>${p?`<span class="tag ${p}">${priorityLabel(x.id)}</span>`:''}</div><div class="item-actions"><button class="linkbtn" onclick="openKakao('${enc(x.place||x.title)}')">카카오맵</button><button class="linkbtn" onclick="openGoogle('${enc(x.place||x.title)}')">구글지도</button><button class="linkbtn priority-btn ${p==='must'?'active':''}" onclick="setPriority('${x.id}','must')">꼭</button><button class="linkbtn priority-btn ${p==='maybe'?'active':''}" onclick="setPriority('${x.id}','maybe')">시간</button><button class="linkbtn priority-btn ${p==='star'?'active':''}" onclick="setPriority('${x.id}','star')">후보</button><button class="linkbtn" onclick="moveItem('${x.id}',${d},-1)">↑</button><button class="linkbtn" onclick="moveItem('${x.id}',${d},1)">↓</button><button class="linkbtn" onclick="removeItem('${x.id}')">삭제</button></div></div>`}).join('')}</div>`;
+  root.appendChild(card);
+ }
+ document.getElementById('kpiSchedule').textContent=items.length+'개';
+}
+function moveItem(id,d,dir){const ids=dayItems(d).map(x=>x.id),i=ids.indexOf(id),j=i+dir;if(i<0||j<0||j>=ids.length)return;[ids[i],ids[j]]=[ids[j],ids[i]];persistOrder(d,ids);renderDays();showDay(activeDay,false)}
+function startPointerDrag(e,id,d){e.preventDefault();const el=document.querySelector(`.item[data-id="${id}"]`);if(!el)return;el.classList.add('dragging');dragState={id,d,el};el.setPointerCapture?.(e.pointerId);window.addEventListener('pointermove',pointerMove,{passive:false});window.addEventListener('pointerup',pointerUp,{once:true})}
+function pointerMove(e){if(!dragState)return;e.preventDefault();const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.item');if(!target||target===dragState.el)return;const parent=target.parentElement;if(+parent.dataset.day!==dragState.d)return;const r=target.getBoundingClientRect();parent.insertBefore(dragState.el,e.clientY<r.top+r.height/2?target:target.nextSibling)}
+function pointerUp(){if(!dragState)return;const parent=dragState.el.parentElement;const ids=[...parent.querySelectorAll('.item')].map(x=>x.dataset.id);persistOrder(dragState.d,ids);dragState.el.classList.remove('dragging');dragState=null;window.removeEventListener('pointermove',pointerMove);renderDays();showDay(activeDay,false)}
+
+function renderPrep(){const saved=JSON.parse(localStorage.getItem('trip.checks')||'{}');document.getElementById('checklist').innerHTML=prep.map((x,i)=>`<label><input type="checkbox" ${saved[i]?'checked':''} onchange="toggleCheck(${i},this)"><span class="${saved[i]?'strike':''}">${x}</span></label>`).join('');updatePrepKpi()}
+function toggleCheck(i,el){const saved=JSON.parse(localStorage.getItem('trip.checks')||'{}');saved[i]=el.checked;localStorage.setItem('trip.checks',JSON.stringify(saved));el.nextElementSibling.classList.toggle('strike',el.checked);updatePrepKpi()}
+function updatePrepKpi(){const s=JSON.parse(localStorage.getItem('trip.checks')||'{}'),n=Object.values(s).filter(Boolean).length;document.getElementById('kpiPrep').textContent=Math.round(n/prep.length*100)+'%'}
+function renderFood(){document.getElementById('foodList').innerHTML=food.map(f=>{const p=priorities[f.id];return `<div class="card food-card"><div><h3>${f.name}</h3><div class="food-meta"><span class="pill">${f.area}</span><span class="pill">${f.type}</span>${p?`<span class="pill">${priorityLabel(f.id)}</span>`:''}</div><p>${f.note}</p><div class="chips"><button class="linkbtn priority-btn ${p==='must'?'active':''}" onclick="setPriority('${f.id}','must')">꼭 가기</button><button class="linkbtn priority-btn ${p==='maybe'?'active':''}" onclick="setPriority('${f.id}','maybe')">시간되면</button><button class="linkbtn priority-btn ${p==='star'?'active':''}" onclick="setPriority('${f.id}','star')">후보</button></div></div><button class="btn small" onclick="openKakao('${enc(f.name)}')">지도</button></div>`}).join('')}
+
+function initMap(){map=L.map('map',{zoomControl:true}).setView([33.59,130.40],12);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);layerGroup=L.layerGroup().addTo(map);document.getElementById('mapControls').innerHTML=[1,2,3,4].map(d=>`<button id="mapDay${d}" onclick="showDay(${d})">DAY ${d}</button>`).join('');showDay(1,false)}
+function showDay(d,scroll=true){activeDay=d;document.querySelectorAll('.map-controls button').forEach(b=>b.classList.remove('active'));document.getElementById('mapDay'+d)?.classList.add('active');layerGroup.clearLayers();const arr=dayItems(d).filter(x=>Number.isFinite(+x.lat)&&Number.isFinite(+x.lng));const pts=[];arr.forEach((x,i)=>{const p=[+x.lat,+x.lng];pts.push(p);L.marker(p).bindPopup(`<b>${i+1}. ${x.start} ${esc(x.title)}</b><br>${esc(x.place||'')}`).addTo(layerGroup)});if(pts.length>1)L.polyline(pts,{weight:4,opacity:.75,dashArray:'8 8'}).addTo(layerGroup);if(pts.length)map.fitBounds(L.latLngBounds(pts).pad(.18));document.getElementById('routeInfo').innerHTML=routeText[d].map(r=>`<div class="route-card"><b>${r[0]}</b><p>${r[1]}</p></div>`).join('');if(scroll)document.getElementById('map-section').scrollIntoView({behavior:'smooth',block:'start'})}
+function openGoogle(q){window.open('https://www.google.com/maps/search/?api=1&query='+q,'_blank','noopener')}
+function openKakao(q){window.open('https://map.kakao.com/link/search/'+q,'_blank','noopener')}
+
+function removeItem(id){if(!confirm('이 일정을 삭제할까요?'))return;if(id.startsWith('u-')){custom=custom.filter(x=>x.id!==id);localStorage.setItem('trip.custom',JSON.stringify(custom))}else{removed=[...new Set([...removed,id])];localStorage.setItem('trip.removed',JSON.stringify(removed))}items=items.filter(x=>x.id!==id);for(const d of [1,2,3,4])if(order[d]){order[d]=order[d].filter(x=>x!==id)}localStorage.setItem('trip.order',JSON.stringify(order));renderDays();showDay(activeDay,false)}
+function openAdd(){addDialog.showModal()}
+function saveAdd(){const title=fTitle.value.trim();if(!title)return alert('일정명을 입력하세요.');const lat=parseFloat(fLat.value),lng=parseFloat(fLng.value);const x={id:'u-'+Date.now(),day:+fDay.value,start:fStart.value||'12:00',end:fEnd.value||'',title,place:fPlace.value.trim(),memo:fMemo.value.trim(),type:fType.value,lat:Number.isFinite(lat)?lat:null,lng:Number.isFinite(lng)?lng:null};custom.push(x);localStorage.setItem('trip.custom',JSON.stringify(custom));items.push(x);const ids=dayItems(x.day).map(v=>v.id);persistOrder(x.day,ids);addDialog.close();['fTitle','fPlace','fMemo','fLat','fLng','fEnd'].forEach(id=>document.getElementById(id).value='');renderDays();showDay(x.day,false)}
+
+function openExpense(){expenseDialog.showModal()}
+function saveBudget(){budget=+budgetInput.value||0;localStorage.setItem('trip.budget',String(budget));renderExpenses()}
+function saveExpense(){const amount=+eAmount.value||0,title=eTitle.value.trim();if(!amount||!title)return alert('금액과 내용을 입력하세요.');expenses.unshift({id:'e-'+Date.now(),cat:eCat.value,amount,title,memo:eMemo.value.trim(),at:new Date().toISOString()});localStorage.setItem('trip.expenses',JSON.stringify(expenses));expenseDialog.close();eAmount.value='';eTitle.value='';eMemo.value='';renderExpenses()}
+function deleteExpense(id){expenses=expenses.filter(x=>x.id!==id);localStorage.setItem('trip.expenses',JSON.stringify(expenses));renderExpenses()}
+function renderExpenses(){budgetInput.value=budget||'';const spent=expenses.reduce((s,x)=>s+(+x.amount||0),0),remain=budget-spent;budgetRemain.value='¥'+fmt(remain);document.getElementById('kpiBudget').textContent='¥'+fmt(budget);document.getElementById('kpiSpent').textContent='¥'+fmt(spent);const root=document.getElementById('expenseList');root.innerHTML=expenses.length?expenses.map(x=>`<div class="expense-row"><div><b>${esc(x.title)}</b><div class="muted">${esc(x.cat)}${x.memo?' · '+esc(x.memo):''}</div></div><div style="text-align:right"><div class="amount">¥${fmt(x.amount)}</div><button class="linkbtn" onclick="deleteExpense('${x.id}')">삭제</button></div></div>`).join(''):'<div class="empty">아직 입력한 지출이 없습니다.</div>'}
+function fmt(n){return Number(n||0).toLocaleString('ko-KR')}
+
+const DB_NAME='fukuoka-trip-db',STORE='reservations';
+function dbOpen(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE,{keyPath:'id'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function dbAll(){const db=await dbOpen();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly'),r=tx.objectStore(STORE).getAll();r.onsuccess=()=>resolve(r.result||[]);r.onerror=()=>reject(r.error)})}
+async function dbPut(v){const db=await dbOpen();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(v);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+async function dbDelete(id){const db=await dbOpen();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+async function dbClear(){const db=await dbOpen();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).clear();tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+function openReservation(){reservationDialog.showModal()}
+async function saveReservation(){const title=rTitle.value.trim();if(!title)return alert('예약 제목을 입력하세요.');const file=rImage.files[0]||null;const v={id:'r-'+Date.now(),type:rType.value,title,code:rCode.value.trim(),time:rTime.value.trim(),memo:rMemo.value.trim(),image:file};await dbPut(v);reservationDialog.close();['rTitle','rCode','rTime','rMemo'].forEach(id=>document.getElementById(id).value='');rImage.value='';renderReservations()}
+async function deleteReservation(id){if(!confirm('이 예약정보를 삭제할까요?'))return;await dbDelete(id);renderReservations()}
+async function renderReservations(){const root=document.getElementById('reservationList');let arr=[];try{arr=await dbAll()}catch(e){root.innerHTML='<div class="empty">이 브라우저에서는 예약 이미지 저장을 사용할 수 없습니다.</div>';return}if(!arr.length){root.innerHTML='<div class="empty">저장된 예약 정보가 없습니다.</div>';return}root.innerHTML='';arr.sort((a,b)=>b.id.localeCompare(a.id));for(const x of arr){const row=document.createElement('div');row.className='reservation-row';const left=document.createElement('div');left.innerHTML=`<b>${esc(x.title)}</b><div class="muted">${esc(x.type)}${x.time?' · '+esc(x.time):''}</div>${x.code?`<div>예약번호: <b>${esc(x.code)}</b> <button class="linkbtn" onclick="copyText('${enc(x.code)}')">복사</button></div>`:''}${x.memo?`<div class="muted">${esc(x.memo)}</div>`:''}`;const right=document.createElement('div');right.style.textAlign='right';if(x.image){const img=document.createElement('img');img.className='thumb';img.src=URL.createObjectURL(x.image);img.onclick=()=>window.open(img.src,'_blank');right.appendChild(img)}const del=document.createElement('button');del.className='linkbtn';del.textContent='삭제';del.onclick=()=>deleteReservation(x.id);right.appendChild(document.createElement('br'));right.appendChild(del);row.append(left,right);root.appendChild(row)}}
+async function copyText(v){const t=decodeURIComponent(v);try{await navigator.clipboard.writeText(t);alert('복사했습니다.')}catch(e){prompt('복사하세요.',t)}}
+
+async function loadWeather(){const root=document.getElementById('weather');root.innerHTML='<div class="empty">날씨 불러오는 중…</div>';try{const urls=[['후쿠오카',33.5902,130.4207],['유후인',33.2662,131.3691]];const all=[];for(const [name,lat,lon] of urls){const u=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&start_date=2026-11-07&end_date=2026-11-10`;const r=await fetch(u);if(!r.ok)throw new Error('weather');const j=await r.json();all.push([name,j.daily])}root.innerHTML='';for(let i=0;i<4;i++){const date=all[0][1].time[i],city=i<2?'후쿠오카':i===2?'유후인':'유후인';const src=city==='후쿠오카'?all[0][1]:all[1][1];const div=document.createElement('div');div.className='weather-card';div.innerHTML=`<b>${date.slice(5).replace('-','/')} · ${city}</b><div>${weatherIcon(src.weather_code[i])} ${weatherText(src.weather_code[i])}</div><span>${Math.round(src.temperature_2m_min[i])}~${Math.round(src.temperature_2m_max[i])}℃ · 강수 ${src.precipitation_probability_max[i]??'-'}%</span>`;root.appendChild(div)}}catch(e){root.innerHTML='<div class="empty">현재 예보 제공 범위 밖이거나 네트워크 연결이 없습니다. 여행일이 가까워지면 다시 열어 확인하세요.</div>'}}
+function weatherIcon(c){return c===0?'☀️':c<=3?'⛅':c<=48?'🌫️':c<=67?'🌧️':c<=77?'🌨️':c<=82?'🌦️':'⛈️'}
+function weatherText(c){return c===0?'맑음':c<=3?'구름':c<=48?'안개':c<=67?'비':c<=77?'눈':c<=82?'소나기':'뇌우'}
+
+async function shareTrip(){const data={title:'후쿠오카·유후인 3박4일 여행계획',text:'2026.11.07–11.10 후쿠오카·유후인 여행계획',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);alert('링크를 복사했습니다. 카카오톡에 붙여넣어 주세요.')}}catch(e){}}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBanner.classList.add('show')});
+async function installApp(){if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBanner.classList.remove('show')}else alert('iPhone/iPad: Safari 공유 버튼 → 홈 화면에 추가\nAndroid: 브라우저 메뉴 → 앱 설치/홈 화면에 추가')}
+window.addEventListener('appinstalled',()=>installBanner.classList.remove('show'));
+
+async function resetAll(){if(!confirm('일정 편집, 체크리스트, 예산, 지출, 우선순위, 예약 이미지를 모두 초기화할까요?'))return;['trip.custom','trip.removed','trip.order','trip.priorities','trip.expenses','trip.budget','trip.checks'].forEach(k=>localStorage.removeItem(k));try{await dbClear()}catch(e){}location.reload()}
+
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+renderDays();renderPrep();renderFood();renderExpenses();renderReservations();initMap();loadWeather();
+</script>
+</body>
+</html>
